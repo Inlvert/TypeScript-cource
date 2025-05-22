@@ -61,7 +61,6 @@
 
 // foo(userObj.isBirthdayData, 34, "Boris");
 
-
 //------------------------ task - conditions
 
 // const currRate = "1.05";
@@ -84,20 +83,46 @@
 
 //------------------------- task - solution
 
-const currRate = "1.05";
+// const currRate = "1.05";
 
-const fetchCurr = (response: string): string => {
-  const data = JSON.parse(response);
-  return data;
-}
+// const fetchCurr = (response: string): string => {
+//   const data = JSON.parse(response);
+//   return data;
+// }
 
-function transferEurToUsd(available: boolean, amount: number, commission: number) {
-  if(available) {
-    let res = +fetchCurr(currRate) * amount * commission;
-    console.log(res);
+// function transferEurToUsd(available: boolean, amount: number, commission: number) {
+//   if(available) {
+//     let res = +fetchCurr(currRate) * amount * commission;
+//     console.log(res);
+//   } else {
+//     console.log('you can not exchange Eur')
+//   }
+// }
+
+// transferEurToUsd(true, 1000, 1.05)
+
+//--------------------------- type never
+
+const createError = (mag: string) => {
+  throw new Error("Error");
+};
+
+const createError2 = (mag: string) => {
+  while (true) {}
+};
+
+const foo = (isBirthday: boolean, age: number, userName: string): string => {
+  if (isBirthday) {
+    return `congrats ${userName.toUpperCase()}, age${age + 1}`;
   } else {
-    console.log('you can not exchange Eur')
+    return createError("Error"); //type never
   }
-}
+};
 
-transferEurToUsd(true, 1000, 1.05)
+
+const foo2 = (isBirthday: boolean, age: number, userName: string): string => {
+  if (isBirthday) {
+    return `congrats ${userName.toUpperCase()}, age${age + 1}`;
+  } 
+  return createError("Error"); //type never
+};
