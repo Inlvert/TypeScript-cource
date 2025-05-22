@@ -137,7 +137,6 @@
 // const test6: any = undefined;
 // const test7: string = undefined; // Error
 
-
 //---------------------------- symbol
 
 // let id: symbol = Symbol("id");
@@ -151,6 +150,79 @@
 //---------------------------- bigint
 
 // const num1: bigint = 1n; //"target": "es2020",
-// const num2: bigint = 2n; 
+// const num2: bigint = 2n;
 
 // console.log(num1 + num2);
+
+//--------------------------- object
+
+// const isBirthdayData: boolean = true;
+// let ageData: number = 34;
+// const userNameData: string = "John";
+
+// const userData = {
+//   isBirthdayData: true,
+//   ageData: 34,
+//   userNameData: "John",
+//   smth: 'text',
+// }
+
+// const createError = (mag: string) => {
+//   throw new Error("Error");
+// };
+
+// function foo(data: {
+//   isBirthdayData: boolean,
+//   ageData: number,
+//   userNameData: string,
+// }): string {
+//   if (data.isBirthdayData === true) {
+//     return `congrats ${data.userNameData.toUpperCase()}, age${data.ageData + 1}`;
+//   } else {
+//     return createError("Error");
+//   }
+
+// }
+
+// console.log(foo(userData))
+
+//---------------------------- destructuring
+
+const isBirthdayData: boolean = true;
+let ageData: number = 34;
+const userNameData: string = "John";
+
+const userData = {
+  isBirthdayData: true,
+  ageData: 34,
+  userNameData: "John",
+  messages: {
+    error: "Error",
+  },
+};
+
+const createError = (mag: string) => {
+  throw new Error("Error");
+};
+
+function foo({
+  isBirthdayData: isBirth, // destructuring and rename
+  ageData: age, // destructuring and rename
+  userNameData: user, // destructuring and rename
+  messages: { error }, // destructuring
+}: {
+  isBirthdayData: boolean;
+  ageData: number;
+  userNameData: string;
+  messages: {
+    error: string;
+  };
+}): string {
+  if (isBirth === true) {
+    return `congrats ${user.toUpperCase()}, age${age + 1}`;
+  } else {
+    return createError(error);
+  }
+}
+
+console.log(foo(userData));
