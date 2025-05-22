@@ -103,26 +103,36 @@
 
 //--------------------------- type never
 
-const createError = (mag: string) => {
-  throw new Error("Error");
-};
+// const createError = (mag: string) => {
+//   throw new Error("Error");
+// };
 
-const createError2 = (mag: string) => {
-  while (true) {}
-};
+// const createError2 = (mag: string) => {
+//   while (true) {}
+// };
 
-const foo = (isBirthday: boolean, age: number, userName: string): string => {
-  if (isBirthday) {
-    return `congrats ${userName.toUpperCase()}, age${age + 1}`;
-  } else {
-    return createError("Error"); //type never
-  }
-};
+// const foo = (isBirthday: boolean, age: number, userName: string): string => {
+//   if (isBirthday) {
+//     return `congrats ${userName.toUpperCase()}, age${age + 1}`;
+//   } else {
+//     return createError("Error"); //type never
+//   }
+// };
 
+// const foo2 = (isBirthday: boolean, age: number, userName: string): string => {
+//   if (isBirthday) {
+//     return `congrats ${userName.toUpperCase()}, age${age + 1}`;
+//   }
+//   return createError("Error"); //type never
+// };
 
-const foo2 = (isBirthday: boolean, age: number, userName: string): string => {
-  if (isBirthday) {
-    return `congrats ${userName.toUpperCase()}, age${age + 1}`;
-  } 
-  return createError("Error"); //type never
-};
+//---------------------------- null & undefined
+
+// const test1: null = null;
+// const test2: any = null;
+// const test3: string = null; // Error
+// const test4: number = null; // Error
+
+// const test5: undefined = undefined;
+// const test6: any = undefined;
+// const test7: string = undefined; // Error
