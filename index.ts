@@ -136,3 +136,21 @@
 // const test5: undefined = undefined;
 // const test6: any = undefined;
 // const test7: string = undefined; // Error
+
+
+//---------------------------- symbol
+
+// let id: symbol = Symbol("id");
+
+// const data = {
+//   [id]: 1
+// };
+
+// console.log(data[id])
+
+//---------------------------- bigint
+
+// const num1: bigint = 1n; //"target": "es2020",
+// const num2: bigint = 2n; 
+
+// console.log(num1 + num2);
